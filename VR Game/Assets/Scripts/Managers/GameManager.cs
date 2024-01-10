@@ -16,7 +16,10 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
 
+    private void Start()
+    {
         APIManager.Instance.GetWeatherData().ContinueWith((t) =>
         {
             if (t.IsFaulted)
