@@ -67,8 +67,22 @@ public class WeatherData
     }
 }
 
-public class APIClient : MonoBehaviour
+public class APIManager : MonoBehaviour
 {
+    public static APIManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     protected async Task<string> GetDataFromAPIAsync(string apiUrl)
     {
         // Create a task completion source to convert the Unity coroutine to a task.
@@ -130,21 +144,20 @@ public class APIClient : MonoBehaviour
 
     private IEnumerator GetDataFromAPI(TaskCompletionSource<string> tcs, string apiUrl)
     {
-        using (UnityWebRequest request = UnityWebRequest.Get(apiUrl))
-        {
-            yield return request.SendWebRequest();
+        using UnityWebRequest request = UnityWebRequest.Get(apiUrl);
+        
+        yield return request.SendWebRequest();
 
-            if (request.result == UnityWebRequest.Result.ConnectionError
-                || request.result == UnityWebRequest.Result.ProtocolError)
-            {
-                Debug.LogError("Error: " + request.error);
-                tcs.SetResult(string.Empty); // Set the result to an error or an appropriate default value
-            }
-            else
-            {
-                string data = request.downloadHandler.text;
-                tcs.SetResult(data); // Set the result to the API response data
-            }
+        if (request.result == UnityWebRequest.Result.ConnectionError
+            || request.result == UnityWebRequest.Result.ProtocolError)
+        {
+            Debug.LogError("Error: " + request.error);
+            tcs.SetResult(string.Empty); // Set the result to an error or an appropriate default value
+        }
+        else
+        {
+            string data = request.downloadHandler.text;
+            tcs.SetResult(data); // Set the result to the API response data
         }
     }
 }
