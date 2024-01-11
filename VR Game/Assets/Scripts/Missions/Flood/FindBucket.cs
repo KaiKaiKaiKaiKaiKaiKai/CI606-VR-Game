@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class FindBucket : Mission
 {
-    private GameObject bucket;
+    private GameObject bucketGO;
+    private XRGrabInteractable bucketInteractable;
 
     public FindBucket() {
         this.description = "Find a bucket to drain the water";
@@ -16,20 +19,25 @@ public class FindBucket : Mission
 
     public void Start()
     {
-        bucket = GameObject.Find("Bucket");
+        this.bucketGO = GameObject.FindWithTag("MissionBucket");
+        this.bucketInteractable = bucketGO.GetComponent<XRGrabInteractable>();
+        this.bucketInteractable.selectEntered.AddListener(OnObjectPickedUp);
 
-        // Get the Renderer component (assuming it's a MeshRenderer)
-        Renderer renderer = bucket.GetComponent<Renderer>();
+        this.UpdateBucketColor(Color.red);
+    }
 
-        // Check if the Renderer component is not null
-        if (renderer != null)
-        {
-             // Set the color to red
-              renderer.material.color = Color.red;
-        }
-        else
-        {
-            Debug.LogError("Renderer component not found on the GameObject.");
-        }
+    private void UpdateBucketColor(Color color)
+    {
+        // Get the Renderer component
+        Renderer renderer = this.bucketGO.GetComponent<Renderer>();
+
+        renderer.material.color = color;
+    }
+
+    private void OnObjectPickedUp(SelectEnterEventArgs arg0)
+    {
+        this.UpdateBucketColor(Color.gray);
+        
+        MissionManager.Instance.CompleteCurrentMission();
     }
 }
