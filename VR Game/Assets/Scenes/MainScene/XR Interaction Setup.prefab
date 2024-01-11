@@ -230,6 +230,10 @@ PrefabInstance:
       propertyPath: m_ScaleToggleAction.m_Action.m_Id
       value: 97b02ed6-a217-4b37-8863-e653213e2b92
       objectReference: {fileID: 0}
+    - target: {fileID: 1319746311, guid: 154a34697cb41d24698e7c608b2d2555, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1670256628, guid: 154a34697cb41d24698e7c608b2d2555, type: 3}
       propertyPath: m_ScaleDeltaAction.m_Action.m_Id
       value: 56c4f053-95ad-4fda-88f6-f9458f2c086b
@@ -237,6 +241,14 @@ PrefabInstance:
     - target: {fileID: 1670256628, guid: 154a34697cb41d24698e7c608b2d2555, type: 3}
       propertyPath: m_ScaleToggleAction.m_Action.m_Id
       value: a0017189-5e6b-4539-8153-4fb87a0d355a
+      objectReference: {fileID: 0}
+    - target: {fileID: 941652828260492489, guid: 154a34697cb41d24698e7c608b2d2555, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055882120057747522, guid: 154a34697cb41d24698e7c608b2d2555, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503725, guid: 154a34697cb41d24698e7c608b2d2555, type: 3}
       propertyPath: m_Name
@@ -285,6 +297,10 @@ PrefabInstance:
     - target: {fileID: 1717954561962503726, guid: 154a34697cb41d24698e7c608b2d2555, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2449787133337329438, guid: 154a34697cb41d24698e7c608b2d2555, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3114443105980813935, guid: 154a34697cb41d24698e7c608b2d2555, type: 3}
       propertyPath: m_ScaleDeltaAction.m_Action.m_Id

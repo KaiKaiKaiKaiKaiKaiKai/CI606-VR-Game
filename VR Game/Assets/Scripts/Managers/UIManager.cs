@@ -1,10 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
     public GameObject LoadingPanel;
-    private bool isLoadingPanelVisible = true;
+    public TextMeshProUGUI MissionText;
 
     private void Awake()
     {
@@ -18,28 +19,17 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (LoadingPanel != null)
-        {
-            if (isLoadingPanelVisible)
-            {
-                LoadingPanel.SetActive(true);
-            }
-            else
-            {
-                LoadingPanel.SetActive(false);
-            }
-        }
-    }
-
     public void ShowLoadingPanel()
     {
-        isLoadingPanelVisible = true;
+        LoadingPanel.SetActive(true);
     }
 
     public void HideLoadingPanel()
     {
-        isLoadingPanelVisible = false;
+        LoadingPanel.SetActive(false);
+    }
+
+    public void UpdateMissionText(string description) {
+        MissionText.text = description;
     }
 }
