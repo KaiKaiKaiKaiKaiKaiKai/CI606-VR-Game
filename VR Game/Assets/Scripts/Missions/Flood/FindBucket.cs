@@ -11,10 +11,7 @@ public class FindBucket : Mission
 
     public FindBucket() {
         this.description = "Find a bucket to drain the water";
-    }
-    public void Awake()
-    {
-        this.nextMission = gameObject.AddComponent<DrainWater>();
+        this.nextMission = () => gameObject.AddComponent<DrainWater>();
     }
 
     public void Start()
@@ -37,7 +34,7 @@ public class FindBucket : Mission
     private void OnObjectPickedUp(SelectEnterEventArgs arg0)
     {
         this.UpdateBucketColor(Color.gray);
-        
-        MissionManager.Instance.CompleteCurrentMission();
+
+        this.CompleteMission();
     }
 }

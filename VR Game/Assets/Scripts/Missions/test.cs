@@ -18,6 +18,6 @@ public class test : MonoBehaviour
 
     public void NextMission()
     {
-        MissionManager.Instance.CompleteCurrentMission();
+        MissionManager.Instance.currentMission.CompleteMission();
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -23,19 +24,20 @@ public class MissionManager : MonoBehaviour
         SetCurrentMission(gameObject.AddComponent<FindBucket>());
     }
 
-    private void SetCurrentMission(Mission mission) {
-        this.currentMission = mission;
-        
-        UIManager.Instance.UpdateMissionText(this.currentMission.prefix + this.currentMission.description);
-    }
-
-    public void CompleteCurrentMission() {
-        currentMission.completed = true;
-
-        Mission nextMission = currentMission.nextMission;
-        
-        if (nextMission == null) return;
+    private void HandleMissionCompleted(Mission nextMission)
+    {
+        if (this.currentMission != null) {
+            this.currentMission.OnMissionCompleted -= HandleMissionCompleted;
+            Destroy(this.currentMission);
+        }
 
         SetCurrentMission(nextMission);
+    }
+
+    private void SetCurrentMission(Mission mission) {
+        this.currentMission = mission;
+        this.currentMission.OnMissionCompleted += HandleMissionCompleted;
+
+        UIManager.Instance.UpdateMissionText(this.currentMission.prefix + this.currentMission.description);
     }
 }
