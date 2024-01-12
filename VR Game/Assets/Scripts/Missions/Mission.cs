@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Mission : MonoBehaviour
@@ -22,6 +20,6 @@ public class Mission : MonoBehaviour
         // Perform any necessary actions for mission completion
 
         // Trigger the event with a completion message
-        OnMissionCompleted?.Invoke(this.nextMission());
+        OnMissionCompleted?.Invoke(nextMission());
     }
 }

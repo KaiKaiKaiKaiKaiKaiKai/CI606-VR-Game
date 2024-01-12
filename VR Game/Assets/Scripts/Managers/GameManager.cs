@@ -1,5 +1,3 @@
-using System;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -23,12 +21,12 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        this.loaded = GetWeatherDataFromAPI();
+        loaded = GetWeatherDataFromAPI();
     }
 
     private async Task<bool> GetWeatherDataFromAPI()
     {
-        this.weatherData = await APIManager.Instance.GetWeatherData();
+        weatherData = await APIManager.Instance.GetWeatherData();
 
         UIManager.Instance.HideLoadingPanel();
 
