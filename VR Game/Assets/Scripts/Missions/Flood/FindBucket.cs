@@ -36,8 +36,10 @@ public class FindBucket : Mission
 
     private void UpdateBucketColor(Color color)
     {
+        Transform childTransform = bucketGO.transform.Find("Sack_01");
+
         // Get the Renderer component
-        Renderer renderer = bucketGO.GetComponent<Renderer>();
+        Renderer renderer = childTransform.GetComponent<Renderer>();
 
         renderer.material.color = color;
     }
