@@ -4,6 +4,8 @@ public class MissionManager : MonoBehaviour
 {
     public static MissionManager Instance; // Singleton instance
     public Objective currentObjective;
+    public GameObject rain;
+    public GameObject tornado;
 
     private void Awake()
     {
@@ -19,7 +21,8 @@ public class MissionManager : MonoBehaviour
 
     private void Start()
     {
-        SetCurrentObjective(gameObject.AddComponent<FindBucket>());
+        tornado.SetActive(true);
+        SetCurrentObjective(gameObject.AddComponent<FindPlanks>());
     }
 
     private void HandleObjectiveCompleted(Objective nextObjective)

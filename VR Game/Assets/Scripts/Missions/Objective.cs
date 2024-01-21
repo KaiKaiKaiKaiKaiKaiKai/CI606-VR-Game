@@ -15,9 +15,9 @@ public class Objective : MonoBehaviour
 
     public Objective() { }
 
-    public void CompleteObjective(bool successful)
+    public void CompleteObjective(bool success)
     {
-        if (!successful)
+        if (!success)
         {
             nextObjective = () => gameObject.AddComponent<MissionFailed>();
         }

@@ -7,6 +7,10 @@ TagManager:
   - MissionBucket
   - Anchor
   - MissionFloodWater
+  - MissionRain
+  - MissionTornado
+  - MissionPlank
+  - MissionWindows
   layers:
   - Default
   - TransparentFX

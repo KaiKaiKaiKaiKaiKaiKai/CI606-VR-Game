@@ -1,9 +1,11 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DrainWater : Objective
 {
     private GameObject floodWater;
     private GameObject bucket;
+    private GameObject rain;
     private FloodWater floodWaterScript;
 
     public DrainWater()
@@ -15,6 +17,7 @@ public class DrainWater : Objective
     {
         floodWater = GameObject.FindWithTag("MissionFloodWater");
         bucket = GameObject.FindWithTag("MissionBucket");
+        rain = GameObject.FindWithTag("MissionRain");
 
         floodWaterScript = floodWater.GetComponent<FloodWater>();
         floodWaterScript.OnCollisionOccurred += HandleBucketCollision;
@@ -48,8 +51,18 @@ public class DrainWater : Objective
 
         if (floodWaterTransform.localScale.y <= 0) {
             floodWaterScript.OnCollisionOccurred -= HandleBucketCollision;
-            
+
+            StopRain();
             CompleteObjective(true);
         }
+    }
+
+    private void StopRain()
+    {
+        Transform childTransform = rain.transform.Find("RainFallParticleSystem");
+        ParticleSystem particleSystem = childTransform.GetComponent<ParticleSystem>();
+
+        ParticleSystem.MainModule main = particleSystem.main;
+        main.loop = false;
     }
 }
