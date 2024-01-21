@@ -2418,7 +2418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next Mission
+  m_text: Next Objective
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3172,7 +3172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1320f59ead1c7374597a2adf4b7bd53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMission: {fileID: 0}
+  currentObjective: {fileID: 0}
 --- !u!4 &688951698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4376773048811024, guid: 8b225dcee4abbcb45a9ed00c87fea691, type: 3}
@@ -4561,7 +4561,7 @@ GameObject:
   - component: {fileID: 986914410}
   - component: {fileID: 986914409}
   m_Layer: 0
-  m_Name: MissionText
+  m_Name: ObjectiveText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7773,7 +7773,7 @@ GameObject:
   - component: {fileID: 1700362277}
   - component: {fileID: 1700362276}
   m_Layer: 0
-  m_Name: NextMission
+  m_Name: NextObjective
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7950,7 +7950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingPanel: {fileID: 712634840}
-  MissionText: {fileID: 986914409}
+  ObjectiveText: {fileID: 986914409}
 --- !u!4 &1738491514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4130728449503746, guid: a029376427419284e8fe5c800324685b, type: 3}

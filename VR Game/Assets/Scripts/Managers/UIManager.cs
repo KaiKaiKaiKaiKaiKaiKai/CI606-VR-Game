@@ -5,7 +5,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
     public GameObject LoadingPanel;
-    public TextMeshProUGUI MissionText;
+    public TextMeshProUGUI ObjectiveText;
 
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
         LoadingPanel.SetActive(false);
     }
 
-    public void UpdateMissionText(string description) {
-        MissionText.text = description;
+    public void UpdateObjectiveText(string description) {
+        ObjectiveText.text = description;
     }
 }

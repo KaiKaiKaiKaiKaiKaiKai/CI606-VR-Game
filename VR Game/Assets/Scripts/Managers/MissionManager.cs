@@ -3,7 +3,7 @@ using UnityEngine;
 public class MissionManager : MonoBehaviour
 {
     public static MissionManager Instance; // Singleton instance
-    public Mission currentMission;
+    public Objective currentObjective;
 
     private void Awake()
     {
@@ -19,23 +19,23 @@ public class MissionManager : MonoBehaviour
 
     private void Start()
     {
-        SetCurrentMission(gameObject.AddComponent<FindBucket>());
+        SetCurrentObjective(gameObject.AddComponent<FindBucket>());
     }
 
-    private void HandleMissionCompleted(Mission nextMission)
+    private void HandleObjectiveCompleted(Objective nextObjective)
     {
-        if (currentMission != null) {
-            currentMission.OnMissionCompleted -= HandleMissionCompleted;
-            Destroy(currentMission);
+        if (currentObjective != null) {
+            currentObjective.OnObjectiveCompleted -= HandleObjectiveCompleted;
+            Destroy(currentObjective);
         }
 
-        SetCurrentMission(nextMission);
+        SetCurrentObjective(nextObjective);
     }
 
-    private void SetCurrentMission(Mission mission) {
-        currentMission = mission;
-        currentMission.OnMissionCompleted += HandleMissionCompleted;
+    private void SetCurrentObjective(Objective objective) {
+        currentObjective = objective;
+        currentObjective.OnObjectiveCompleted += HandleObjectiveCompleted;
 
-        UIManager.Instance.UpdateMissionText(currentMission.prefix + currentMission.description);
+        UIManager.Instance.UpdateObjectiveText(currentObjective.prefix + currentObjective.description);
     }
 }

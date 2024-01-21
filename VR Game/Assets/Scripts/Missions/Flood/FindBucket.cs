@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class FindBucket : Mission
+public class FindBucket : Objective
 {
     private GameObject floodWaterGO;
     private GameObject bucketGO;
@@ -9,7 +9,7 @@ public class FindBucket : Mission
 
     public FindBucket() {
         description = "Find a bucket to drain the water";
-        nextMission = () => gameObject.AddComponent<DrainWater>();
+        nextObjective = () => gameObject.AddComponent<DrainWater>();
     }
 
     public void Start()
@@ -29,8 +29,7 @@ public class FindBucket : Mission
 
         if (floodWaterTransform.localScale.y >= 2)
         {
-            nextMission = () => gameObject.AddComponent<FloodFailed>();
-            CompleteMission();
+            CompleteObjective(false);
         };
     }
 
@@ -48,6 +47,6 @@ public class FindBucket : Mission
     {
         UpdateBucketColor(Color.gray);
 
-        CompleteMission();
+        CompleteObjective(true);
     }
 }

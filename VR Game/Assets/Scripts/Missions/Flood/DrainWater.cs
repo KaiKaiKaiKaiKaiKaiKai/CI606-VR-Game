@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DrainWater : Mission
+public class DrainWater : Objective
 {
     private GameObject floodWaterGO;
     private GameObject bucketGO;
@@ -9,7 +9,6 @@ public class DrainWater : Mission
     public DrainWater()
     {
         description = "Scoop the water out with the bucket";
-        nextMission = () => gameObject.AddComponent<FloodComplete>();
     }
 
     public void Start()
@@ -26,9 +25,9 @@ public class DrainWater : Mission
         floodWaterTransform.localScale += new Vector3(0f, 0.05f * Time.deltaTime, 0f);
 
         if (floodWaterTransform.localScale.y >= 2) {
-            nextMission = () => gameObject.AddComponent<FloodFailed>();
             floodWaterScript.OnCollisionOccurred -= HandleBucketCollision;
-            CompleteMission();
+
+            CompleteObjective(false);
         }
     }
 
@@ -48,7 +47,8 @@ public class DrainWater : Mission
 
         if (floodWaterTransform.localScale.y <= 0) {
             floodWaterScript.OnCollisionOccurred -= HandleBucketCollision;
-            CompleteMission();
+            
+            CompleteObjective(true);
         }
     }
 }
