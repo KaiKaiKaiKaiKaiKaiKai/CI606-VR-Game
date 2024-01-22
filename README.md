@@ -1,4 +1,4 @@
-In order to run the source code, you will need the follow Unity asset packages:
+In order to run the source code, you will need the following Unity asset packages:
 
 •	Bedroom - https://assetstore.unity.com/packages/3d/environments/minimalist-archviz-bedroom-131093
 
