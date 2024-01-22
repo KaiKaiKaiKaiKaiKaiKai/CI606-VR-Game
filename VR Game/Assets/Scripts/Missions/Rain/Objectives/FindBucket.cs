@@ -5,7 +5,6 @@ public class FindBucket : Objective
 {
     private GameObject floodWater;
     private GameObject bucket;
-    private GameObject rain;
     private XRGrabInteractable bucketInteractable;
 
     public FindBucket() {
@@ -17,7 +16,6 @@ public class FindBucket : Objective
     {
         floodWater = GameObject.FindWithTag("MissionFloodWater");
         bucket = GameObject.FindWithTag("MissionBucket");
-        rain = GameObject.FindWithTag("MissionRain");
 
         bucketInteractable = bucket.GetComponent<XRGrabInteractable>();
         bucketInteractable.selectEntered.AddListener(OnObjectPickedUp);

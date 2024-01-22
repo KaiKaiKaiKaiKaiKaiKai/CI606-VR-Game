@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class MissionManager : MonoBehaviour
 {
@@ -20,10 +22,30 @@ public class MissionManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        snow.SetActive(true);
-        SetCurrentObjective(gameObject.AddComponent<FindLighter>());
+    public void StartMission(string weather) {
+        switch (weather)
+        {
+            case "rain":
+                rain.SetActive(true);
+                SetCurrentObjective(gameObject.AddComponent<FindBucket>());
+
+                break;
+
+            case "wind":
+                tornado.SetActive(true);
+                SetCurrentObjective(gameObject.AddComponent<FindPlanks>());
+                
+                break;
+
+            case "cold":
+                snow.SetActive(true);
+                SetCurrentObjective(gameObject.AddComponent<FindLighter>());
+
+                break;
+
+            default:
+                break;
+        }
     }
 
     private void HandleObjectiveCompleted(Objective nextObjective)
