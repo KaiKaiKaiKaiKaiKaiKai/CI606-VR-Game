@@ -12,4 +12,4 @@ In order to run the source code, you will need the following Unity asset package
 
 •	Candles - https://assetstore.unity.com/packages/3d/props/free-halloween-pumpkin-props-235332
 
-They have not been repackaged with this repository as it is unethical to do so.
+You need to add them to your assets (using the online asset store https://assetstore.unity.com/), then download and import them in the package manager in the Unity editor.
