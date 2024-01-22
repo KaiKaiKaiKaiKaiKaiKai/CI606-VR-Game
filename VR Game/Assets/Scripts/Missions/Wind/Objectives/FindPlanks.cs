@@ -39,10 +39,8 @@ public class FindPlanks : Objective
 
     private void UpdatePlankColor(Color color, GameObject plank)
     {
-        Transform childTransform = plank.transform.Find("Sack_01");
-
         // Get the Renderer component
-        Renderer renderer = childTransform.GetComponent<Renderer>();
+        Renderer renderer = plank.GetComponent<Renderer>();
 
         renderer.material.color = color;
     }
@@ -51,7 +49,7 @@ public class FindPlanks : Objective
     {
         foreach (GameObject plank in planks)
         {
-            UpdatePlankColor(Color.gray, plank);
+            UpdatePlankColor(new Color(0.7019608f, 0.5411765f, 0.3176471f), plank);
         }
 
         CompleteObjective(true);
