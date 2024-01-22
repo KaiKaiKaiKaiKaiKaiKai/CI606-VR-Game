@@ -21,8 +21,8 @@ public class MissionManager : MonoBehaviour
 
     private void Start()
     {
-        rain.SetActive(true);
-        SetCurrentObjective(gameObject.AddComponent<FindBucket>());
+        tornado.SetActive(true);
+        SetCurrentObjective(gameObject.AddComponent<FindPlanks>());
     }
 
     private void HandleObjectiveCompleted(Objective nextObjective)
