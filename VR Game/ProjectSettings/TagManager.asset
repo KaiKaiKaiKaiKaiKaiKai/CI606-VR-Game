@@ -11,6 +11,9 @@ TagManager:
   - MissionTornado
   - MissionPlank
   - MissionWindows
+  - MissionFilter
+  - MissionLighter
+  - MissionCandle
   layers:
   - Default
   - TransparentFX

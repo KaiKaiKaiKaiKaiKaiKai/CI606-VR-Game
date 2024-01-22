@@ -15,7 +15,6 @@ public class FindBucket : Objective
 
     public void Start()
     {
-        Debug.Log("Start");
         floodWater = GameObject.FindWithTag("MissionFloodWater");
         bucket = GameObject.FindWithTag("MissionBucket");
         rain = GameObject.FindWithTag("MissionRain");

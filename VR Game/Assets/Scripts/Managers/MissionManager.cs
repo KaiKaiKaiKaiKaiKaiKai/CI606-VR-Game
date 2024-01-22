@@ -6,6 +6,7 @@ public class MissionManager : MonoBehaviour
     public Objective currentObjective;
     public GameObject rain;
     public GameObject tornado;
+    public GameObject snow;
 
     private void Awake()
     {
@@ -21,8 +22,8 @@ public class MissionManager : MonoBehaviour
 
     private void Start()
     {
-        tornado.SetActive(true);
-        SetCurrentObjective(gameObject.AddComponent<FindPlanks>());
+        snow.SetActive(true);
+        SetCurrentObjective(gameObject.AddComponent<FindLighter>());
     }
 
     private void HandleObjectiveCompleted(Objective nextObjective)
